@@ -4,12 +4,13 @@ import Link from "next/link";
 import { Fragment, useState } from "react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import {
-  ChatBubbleLeftIcon,
+  HeartIcon,
   ChevronDownIcon,
-  BriefCaseIcon,
-  PaperAirplaneIcon,
+  WrenchScrewdriverIcon,
+  CheckBadgeIcon,
   PhoneIcon,
   PlayCircleIcon,
+  ArrowLeftEndOnRectangleIcon,
 } from "@heroicons/react/20/solid";
 import { Dialog, Disclosure, Popover, Transition } from "@headlessui/react";
 import { cn } from "@/lib/utils";
@@ -18,22 +19,23 @@ import Image from "next/image";
 const products = [
   {
     name: "Comprehensive Services",
-    description: "Cleaning, landscaping, renovations, pest control, and waste management",
+    description:
+      "Cleaning, landscaping, renovations, pest control, and waste management",
     href: "#",
-    icon: BriefCaseIcon,
+    icon: WrenchScrewdriverIcon,
   },
-  
+
   {
     name: "Quality Assurance",
     description: "Every job we undertake must meets the highest standards",
     href: "#",
-    icon: PaperAirplaneIcon,
+    icon: CheckBadgeIcon,
   },
   {
     name: "Health and Safety",
     description: "We adhere to industry-specific health and safety standards.",
     href: "#",
-    icon: ChatBubbleLeftIcon,
+    icon: HeartIcon,
   },
 ];
 
@@ -46,18 +48,20 @@ function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="bg-[#013B94]">
+    <header className="bg-[#0e1323] ">
       <nav
-        className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
+        className="mx-auto flex max-w-7xl items-center justify-between p-2 lg:px-2"
         aria-label="Global"
       >
         <div className="flex lg:flex-1">
-          <Link href="/" className="-m-1.5 p-1.5">
+          <Link href="/" className="-m-1.5 p-1">
             <span className="sr-only">DONUMENTERPRISES.CO.KE</span>
             <Image
-              className="h-12 w-auto"
-              src=""
+              className=""
+              src="/images/logo.png"
               alt="Donum Enterprises"
+              width={140}
+              height={120}
             />
           </Link>
         </div>
@@ -76,7 +80,7 @@ function Header() {
         <Popover.Group className="hidden lg:flex lg:gap-x-12">
           <Popover className="relative">
             <Popover.Button className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-white">
-              Why Us
+              Features
               <ChevronDownIcon
                 className="h-5 w-5 flex-none text-white"
                 aria-hidden="true"
@@ -145,15 +149,27 @@ function Header() {
             Services
           </a>
           <a href="#" className="text-sm font-semibold leading-6 text-white">
+            Pricing
+          </a>
+          <a href="#" className="text-sm font-semibold leading-6 text-white">
+            Resources
+          </a>
+          <a href="#" className="text-sm font-semibold leading-6 text-white">
             Get Hired
           </a>
         </Popover.Group>
 
-        <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-
-          <a href="#" className="text-sm font-semibold leading-6 text-white">
-            Log in <span aria-hidden="true">&rarr;</span>
-          </a>
+        <div className="hidden lg:flex lg:flex-1 lg:justify-end justify-center items-center gap-x-2">
+          <ArrowLeftEndOnRectangleIcon
+            width={20}
+            height={20}
+            className="transform rotate-180 text-white  justify-center items-center"
+          />{" "}
+          <div>
+            <a href="#" className="text-sm font-semibold leading-6 text-white">
+              Log in
+            </a>
+          </div>
         </div>
       </nav>
 
@@ -165,14 +181,16 @@ function Header() {
       >
         <div className="fixed inset-0 z-10" />
 
-        <Dialog.Panel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-[#013B94] px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+        <Dialog.Panel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-[#0e1323] px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
           <div className="flex items-center justify-between">
             <a href="#" className="-m-1.5 p-1.5">
-              <span className="sr-only">Booking.com</span>
-              <img
-                className="h-8 w-auto"
-                src="https://static1.squarespace.com/static/5bde0f00c3c16aa95581e2e2/62b4cb1add9d257dd43bb03d/62b653fedc7c895918d19b24/1656116254983/booking+logo+white.png?format=1500w"
-                alt=""
+              <span className="sr-only">DONUMENTERPRISES.CO.KE</span>
+              <Image
+                className=""
+                src="/images/logo.png"
+                alt="Donum Enterprises"
+                width={100}
+                height={100}
               />
             </a>
             <button
@@ -192,7 +210,7 @@ function Header() {
                   {({ open }) => (
                     <>
                       <Disclosure.Button className="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 text-white hover:bg-blue-800">
-                        Stays
+                        Features
                         <ChevronDownIcon
                           className={cn(
                             open ? "rotate-180" : "",
@@ -220,34 +238,39 @@ function Header() {
                   href="#"
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-blue-800"
                 >
-                  Flights
+                  Services
                 </a>
                 <a
                   href="#"
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-blue-800"
                 >
-                  Car Rentals
+                  Pricing
                 </a>
                 <a
                   href="#"
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-blue-800"
                 >
-                  Attractions
+                  Resources
                 </a>
                 <a
                   href="#"
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-blue-800"
                 >
-                  Flight + Hotel
+                  Get Hired
                 </a>
               </div>
 
-              <div className="py-6">
+              <div className="py-6 flex  justify -center items-center gap-x-2">
+                <ArrowLeftEndOnRectangleIcon
+                  width={20}
+                  height={20}
+                  className="transform rotate-180 text-white  justify-center "
+                />
                 <a
                   href="#"
-                  className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-white hover:bg-blue-800"
+                  className="text-sm font-semibold leading-6 text-white"
                 >
-                  Log In
+                  Log in
                 </a>
               </div>
             </div>

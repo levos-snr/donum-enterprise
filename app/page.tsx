@@ -1,7 +1,9 @@
+import BodySection from "@/components/BodySection";
+
 export default function Home() {
   return (
-    <main>
-      <h1>Main Page </h1>
+    <main className="bg-[#0e1323]">
+      <BodySection />
     </main>
   );
 }
